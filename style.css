@@ -1,0 +1,135 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: linear-gradient(rgba(0, 0, 0, 0.3),
+        rgba(0, 0, 0, 0.1)), url('img/game.jpeg');
+    background-size: cover;
+    min-height: 100vh;
+    font-family: 'Permanent Marker', cursive;
+    color: #ffffff;
+    text-align: center;
+
+}
+
+h1 {
+    font-size: 4.5rem;
+    text-shadow: 0.05em 0.1em 0.1em gray;
+}
+
+button {
+    padding: 5px 20px;
+}
+
+
+.grid {
+    margin: 0 auto;
+    padding-top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    max-width: 600px;
+
+}
+
+.card {
+    position: relative;
+    transition: all .4s linear;
+    transform-style: preserve-3d;
+    margin: 5px;
+}
+
+.card,
+.back,
+.front {
+    height: 140px;
+    width: 120px;
+}
+
+.back,
+.front {
+    position: absolute;
+
+    backface-visibility: hidden;
+}
+
+.front {
+    background: url('img/question.jpg') no-repeat center center / contain;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+    border-radius: 11%;
+}
+
+.back {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.selected {
+    -webkit-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+}
+
+.match .front {
+    background: transparent !important;
+}
+
+
+
+.winner {
+    position: absolute;
+    z-index: -2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    font-size: 5rem;
+}
+
+.button {
+    border-radius: 45%;
+    padding: 15px 35px 15px 35px;
+    font-weight: 700;
+    border: 2px solid #051844;
+    background: #ffffff;
+    margin-top: 10px;
+    cursor: pointer;
+}
+
+
+button:focus {
+    outline: 0;
+}
+
+
+.button__reset {
+    background: #000000;
+    border: 2px solid #eff4ff;
+    color: #ffffff;
+}
+
+.button__selected {
+    border: 3px solid #000000;
+    z-index: 2;
+    background: #cdd1d8;
+}
+
+@media only screen and (max-width: 500px) {
+    .winner {
+        top: 70%;
+    }
+}
+
+
+@media only screen and (max-width: 320px) {
+    .winner {
+        top: 85%;
+    }
+}
