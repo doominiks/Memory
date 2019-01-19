@@ -89,9 +89,9 @@ grid.addEventListener('click', function (e) {
 
 // Choosing Level Logic
 function setupLevelButtons() {
-    for (var i = 0; i < levelButtons.length; i++) {
+    for (let i = 0; i < levelButtons.length; i++) {
         levelButtons[i].addEventListener('click', function () {
-            for (var i = 0; i < levelButtons.length; i++) {
+            for (let i = 0; i < levelButtons.length; i++) {
                 levelButtons[i].classList.remove('button__selected');
                 this.classList.add('button__selected');
                 if (this.textContent === 'Easy') {
@@ -141,10 +141,10 @@ function reset() {
     scoreShow.innerHTML = `Moves: ${moves}`;
     let card = document.querySelectorAll('.card');
 
-    for (var i = 0; i < cardsArray.concat(cardsArray).length; i++) {
+    for (let i = 0; i < cardsArray.concat(cardsArray).length; i++) {
         if (gameGrid[i]) {
             card[i].style.display = 'block';
-            var back = document.querySelectorAll('.back')
+            let back = document.querySelectorAll('.back')
             card[i].dataset.name = gameGrid[i].name;
             back[i].style.backgroundImage = `url(${gameGrid[i].img})`;
             card[i].classList.remove('match');
@@ -190,7 +190,7 @@ function match() {
 function shuffle(elems) {
 
     allElems = (function () {
-        var ret = [],
+        let ret = [],
             l = elems.length;
         while (l--) {
             ret[ret.length] = elems[l];
@@ -198,11 +198,11 @@ function shuffle(elems) {
         return ret;
     })();
 
-    var shuffled = (function () {
-            var l = allElems.length,
+    let shuffled = (function () {
+            let l = allElems.length,
                 ret = [];
             while (l--) {
-                var random = Math.floor(Math.random() * allElems.length),
+                let random = Math.floor(Math.random() * allElems.length),
                     randEl = allElems[random].cloneNode(true);
                 allElems.splice(random, 1);
                 ret[ret.length] = randEl;
@@ -220,8 +220,8 @@ function shuffle(elems) {
 
 
 function generateArray(num) {
-    var arr = [];
-    for (var i = 0; i < num; i++) {
+    let arr = [];
+    for (let i = 0; i < num; i++) {
         arr.push(cardsArray[i])
     }
     return arr.concat(arr);

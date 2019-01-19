@@ -32,6 +32,7 @@ button {
     flex-wrap: wrap;
     justify-content: space-evenly;
     max-width: 600px;
+    position: relative;
 
 }
 
@@ -86,7 +87,7 @@ button {
 .winner {
     position: absolute;
     z-index: -2;
-    top: 50%;
+    top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
     opacity: 0;
@@ -119,17 +120,4 @@ button:focus {
     border: 3px solid #000000;
     z-index: 2;
     background: #cdd1d8;
-}
-
-@media only screen and (max-width: 500px) {
-    .winner {
-        top: 70%;
-    }
-}
-
-
-@media only screen and (max-width: 320px) {
-    .winner {
-        top: 85%;
-    }
 }
