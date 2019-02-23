@@ -39,8 +39,8 @@ const easyBtn = document.querySelector('.easy');
 const mediumBtn = document.querySelector('.medium');
 const hardBtn = document.querySelector('.hard');
 const levelButtons = document.querySelectorAll('.button__level');
-let winner = document.querySelector('.winner')
-const gridContainer = document.querySelector('.grid')
+const gridContainer = document.querySelector('.grid');
+const winner = document.querySelector('.winner')
 let previousChoice = null;
 let firstGuess = '';
 let secondGuess = '';
@@ -50,13 +50,6 @@ let cards = 8;
 let gameGrid = [];
 let pairs = 0;
 
-function init() {
-    setupLevelButtons();
-    createCards();
-    reset();
-}
-
-init();
 
 // Watching for game 
 grid.addEventListener('click', function (e) {
@@ -88,7 +81,7 @@ grid.addEventListener('click', function (e) {
 });
 
 // Choosing Level Logic
-function setupLevelButtons() {
+const setupLevelButtons = () => {
     for (let i = 0; i < levelButtons.length; i++) {
         levelButtons[i].addEventListener('click', function () {
             for (let i = 0; i < levelButtons.length; i++) {
@@ -112,7 +105,7 @@ function setupLevelButtons() {
 
 
 //Creating cards
-function createCards() {
+const createCards = () => {
     gameGrid = generateArray(cards)
 
     for (i = 0; i < gameGrid.length; i++) {
@@ -134,7 +127,7 @@ function createCards() {
 }
 
 // Reseting Game Logic
-function reset() {
+const reset = () => {
     gameGrid = generateArray(cards)
     resetGuesses();
     moves = '';
@@ -162,7 +155,7 @@ function reset() {
 }
 
 // Reset guesses after two attempts
-function resetGuesses() {
+const resetGuesses = () => {
     firstGuess = '';
     secondGuess = '';
     count = 0;
@@ -176,7 +169,7 @@ function resetGuesses() {
 
 
 // Adding class to matched cards
-function match() {
+const match = () => {
     let selected = document.querySelectorAll('.selected');
     for (i = 0; i < selected.length; i++) {
         selected[i].classList.add('match');
@@ -187,7 +180,7 @@ function match() {
 
 
 // Shuffle divs
-function shuffle(elems) {
+const shuffle = elems => {
 
     allElems = (function () {
         let ret = [],
@@ -219,7 +212,7 @@ function shuffle(elems) {
 
 
 
-function generateArray(num) {
+const generateArray = num => {
     let arr = [];
     for (let i = 0; i < num; i++) {
         arr.push(cardsArray[i])
@@ -227,10 +220,20 @@ function generateArray(num) {
     return arr.concat(arr);
 }
 
-function gameOver() {
+const gameOver = () => {
     if (pairs === gameGrid.length) {
         winner.style.transition = '2s'
         winner.style.opacity = '1';
         winner.innerHTML = 'You Win!';
     }
 }
+
+
+
+const init = () => {
+    setupLevelButtons();
+    createCards();
+    reset();
+}
+
+init();
